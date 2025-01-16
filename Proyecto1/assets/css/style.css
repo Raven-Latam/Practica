@@ -1,0 +1,159 @@
+:root {
+  --white: hsl(0, 0%, 100%);
+  --light-pink: hsl(275, 100%, 97%);
+  --grayish-purple: hsl(292, 16%, 49%);
+  --dark-purple: hsl(292, 42%, 14%);
+
+  --font-semibold: "WorkSans-SemiBold";
+  --font-regular: "WorkSans-Regular";
+  --font-bold: "WorkSans-Bold";
+}
+
+@font-face {
+  font-family: "WorkSans-Regular";
+  src: url("../fonts/static/WorkSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "WorkSans-Bold";
+  src: url("../fonts/static/WorkSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: "WorkSans-SemiBold";
+  src: url("../fonts/static/WorkSans-SemiBold.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--light-pink);
+  font-family: var(--font-regular);
+  font-size: 16px;
+  color: var(--grayish-purple);
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-height: 30vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.app-header .bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.faq {
+  background-color: var(--white);
+  border-radius: 1.5rem;
+  max-width: 620px;
+}
+
+.faq-wrapper {
+  padding: 1.5rem 2rem;
+}
+
+.faq-header {
+  margin-bottom: 2rem;
+}
+
+.faq-title {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+  font-family: var(--font-bold);
+  font-size: 3rem;
+  color: var(--dark-purple);
+}
+
+.accordion-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-semibold);
+  color: var(--dark-purple);
+  padding: 1rem;
+  cursor: pointer;
+  transition: color 0.3s all ease;
+}
+
+.accordion-item:hover .accordion-title {
+  color: var(--grayish-purple);
+}
+
+.accordion-item {
+  cursor: pointer;
+}
+
+.accordion-item:not(:first-child) {
+  padding-top: 1rem;
+}
+
+.accordion-item:not(:last-child) {
+  border-bottom: 1px solid var(--light-pink);
+}
+
+.accordion-item .icon-minus {
+  display: none;
+}
+
+.accordion-item.open .icon-minus {
+  display: block;
+}
+
+.accordion-item.open .icon-plus {
+  display: none;
+}
+
+.accordion-body {
+  line-height: 1.4rem;
+  height: 0;
+  overflow: hidden;
+  font-family: var(--font-regular);
+  color: var(--grayish-purple);
+  transition: all 0.5s ease;
+}
+
+.accordion-item.open .accordion-body {
+  margin-bottom: 2rem;
+  height: auto;
+}
+
+@media screen and (max-width: 620px) {
+  .wrapper {
+    padding: 0.5rem;
+  }
+
+  .app-header {
+    max-height: 30vh;
+  }
+
+  .faq-title {
+    font-size: 2rem;
+  }
+
+  .faq-title img {
+    width: 30px;
+  }
+
+  .faq-wrapper {
+    padding: 2rem;
+  }
+}
